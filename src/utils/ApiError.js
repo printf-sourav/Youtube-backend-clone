@@ -8,14 +8,14 @@ class ApiError extends Error{
         super(message)
         this.statusCode = statusCode
         this.data=null
-        this.message=false;
+        this.success=false;
         this.errors=errors
 
         if(stack){
             this.stack=stack
         }
         else{
-            Error.captureStackTrace(this,this.construuctor)
+            Error.captureStackTrace(this,this.constructor)
         }
 
     }
