@@ -3,9 +3,8 @@ import { User } from "../models/user.models.js"
 import { uploadOnCloudinary } from "../utils/cloudinary.js"
 import { ApiError } from "../utils/ApiError.js"
 import { apiResponse } from "../utils/apiResponse.js"
-import { channel } from "diagnostics_channel"
-import { pipeline } from "stream"
-
+import jwt from "jsonwebtoken"
+import mongoose from "mongoose"
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
@@ -138,8 +137,8 @@ const logoutUser = asyncHandler(async (req, res) => {
     await User.findByIdAndUpdate(
         req.user._id,
         {
-            $set: {
-                refreshToken: undefined
+            $unset: {
+                refreshToken: 1
             }
         },
         {
@@ -167,23 +166,26 @@ const refreshAceessToken = asyncHandler(async (req, res) => {
             throw new ApiError(401, "Unauthorized access")
         }
 
-        const decodedToken = JsonWebTokenError.verify(
+        const decodedToken = jwt.verify(
             incomingRefreshToken,
-            process.env, REFRESH_TOKEN_SECRET
+            process.env. REFRESH_TOKEN_SECRET
         )
-        const user = User.findById(decodedToken?._id)
+        const user = await User.findById(decodedToken?._id)
 
         if (!user) {
             throw new ApiError(401, "Invalid refresh token")
         }
-        if (incomingRefreshToken !== user?.refreshAceessToken) {
+        if (!user.refreshToken) {
+      throw new ApiError(401, "User has no stored refresh token");
+    }
+        if (incomingRefreshToken !== user?.refreshToken) {
             throw new ApiError(401, "Refresh Token expire")
         }
-        option = {
+        const  options = {
             httpOnly: true,
             secure: true
         }
-        const { newaccessToken, newrefreshToken } = await generateAccessAndRefreshToken(User._id)
+        const { newaccessToken, newrefreshToken } = await generateAccessAndRefreshToken(user._id)
 
         return res
             .status(200)
