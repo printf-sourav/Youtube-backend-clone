@@ -241,7 +241,7 @@ const updateAccountDetails = asyncHandler(async (req, res) => {
             fullName: fullName,
             email: email
         }
-    }, { new: "true" }
+    }, { new: true }
     ).select("-password")
 
 
