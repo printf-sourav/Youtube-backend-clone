@@ -21,5 +21,18 @@ const createChannel = asyncHandler(async(req,res)=>{
         new apiResponse(200,channel,"Channel is active now")
     )
 })
-
-export {createChannel} 
+const deleteChannel = asyncHandler(async(req,res)=>{
+    const {channelId} = req.params;
+    if(!mongoose.isValidObjectId(channelId)){
+        throw new ApiError(400,"Enter valid channel id");
+    }
+    const channel = await Channel.deleteOne({_id:channelId});
+    if(channel.deletedCount===0){
+        throw new ApiError(404,"Channel not available")
+    }
+    return res.status(200)
+    .json(
+        new apiResponse(200,channel,"Channel deleted")
+    )
+})
+export {createChannel,deleteChannel} 
