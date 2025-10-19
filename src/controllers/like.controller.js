@@ -29,7 +29,7 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
     else{
         const newLike = await Like.create({
             video:video._id,
-            owner:userId,
+            likedBy:userId,
         })
 
         return res.status(200)
@@ -63,7 +63,7 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
     else{
         const newLike = await Like.create({
             comment:commentId,
-            owner:userId,
+            likedBy:userId,
         })
 
         return res.status(200)
@@ -97,7 +97,7 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
     else{
         const newLike = await Like.create({
             tweet:tweetId,
-            owner:userId,
+            likedBy:userId,
         })
 
         return res.status(200)
@@ -115,7 +115,7 @@ const getLikedVideos = asyncHandler(async (req, res) => {
     if(!userId){
         throw new ApiError(404,"User not found")
     }
-    const allLikes = await Like.find({likedBy:userId});
+    const allLikes = await Like.find({likedBy:userId, video: {$ne: null}}).populate("video");
     return res.status(200)
     .json(
         new apiResponse(200,allLikes,"All likes fetched")

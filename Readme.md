@@ -1,136 +1,74 @@
-# MainBackend (JavaScript)
+# 🎬 YouTube Backend Clone
 
-A backend service in JavaScript providing authentication, data management, and RESTful APIs.
+A **production-ready YouTube backend clone** built using **Node.js, Express.js, MongoDB, JWT**, and **Cloudinary**.  
+Implements secure authentication, video uploads, likes/comments, and a modular MVC architecture.  
+Includes a complete **Postman API collection with saved responses** for easy testing and documentation.
 
-## Features
-- Authentication (JWT/session) and authorization
-- CRUD APIs for core resources
-- Config-driven environment setup
-- Health check endpoint
-- Production-ready scripts and environment separation
+---
 
-## Tech Stack
-- Node.js (LTS)
-- Web framework: Express/Koa/Fastify (fill in)
-- Database: MongoDB/PostgreSQL/MySQL (fill in)
-- Auth: JWT/Passport (fill in)
-- Testing: Jest/Mocha (fill in)
-- Linting/Formatting: ESLint + Prettier (optional)
+## 🚀 Features
 
-## Requirements
-- Node.js >= 18
-- npm or yarn
-- Database service (fill in)
+- 🔐 **JWT Authentication** – Secure user registration, login, and protected routes  
+- ☁️ **Cloudinary Integration** – Video and thumbnail uploads stored in the cloud  
+- 🎥 **Multer Middleware** – File upload handling and validation  
+- 👤 **User Management** – Profile creation, update, and access control  
+- ❤️ **Like & Comment System** – Content interaction endpoints  
+- 🧩 **MVC Architecture** – Clean separation of logic, models, and routes  
+- ⚙️ **Environment Configuration** – `.env` and `.env.example` support  
+- 📬 **Postman Collection** – Ready-to-import API documentation with example responses  
 
-## Getting Started
-1) Clone
-```
-git clone <your-repository-url>
-cd MainBackend
-```
+---
 
-2) Install
-```
+## 🗂️ Project Structure
+
+Youtube-backend-clone/
+├── controllers/ # Request logic (Auth, Video, User, Comment)
+├── models/ # MongoDB Schemas (User, Video, Comment)
+├── routes/ # Express route definitions
+├── middleware/ # Auth, error handling, validation middleware
+├── utils/ # Helper utilities (Cloudinary, JWT, tokens, etc.)
+├── Youtube-Backend.postman_collection.json # API documentation
+├── .env.example # Environment variable template
+├── server.js # App entry point
+└── package.json
+
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| Backend | Node.js, Express.js |
+| Database | MongoDB with Mongoose |
+| Authentication | JWT (Access + Refresh tokens) |
+| File Uploads | Multer |
+| Cloud Storage | Cloudinary |
+| Configuration | dotenv |
+| API Testing | Postman |
+| Deployment | Render / Railway / Vercel + MongoDB Atlas |
+
+---
+
+## 🧰 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/<your-username>/Youtube-backend-clone.git
+cd Youtube-backend-clone
+
+2️⃣ Install Dependencies
 npm install
-```
 
-3) Configure environment
-Create .env (or copy from .env.example if available) and set:
-```
-PORT=3000
-NODE_ENV=development
-DATABASE_URL=<your-connection-string>
-JWT_SECRET=<strong-secret>
-# Add provider-specific keys as needed
-```
+3️⃣ Configure Environment Variables
 
-## Scripts
-```
-npm run dev     # Start in watch mode (development)
-npm start       # Start in production mode
-npm run build   # Build (if applicable, e.g., TypeScript/Bundling)
-npm test        # Run tests
-npm run lint    # Lint
-npm run format  # Format
-```
-Adjust names if your package.json differs.
+PORT=5000
+MONGO_URI=your_mongodb_uri
 
-## Running
-Development:
-```
-npm run dev
-```
-Production:
-```
-npm run build
-npm start
-```
-Default URL: http://localhost:${PORT:-3000}
+ACCESS_TOKEN_SECRET=your_access_token_secret
+REFRESH_TOKEN_SECRET=your_refresh_token_secret
 
-## API
-- Base URL: http://localhost:3000/api (adjust if different)
-- Health:
-```
-curl -i http://localhost:3000/health
-```
-- Example auth (replace endpoints/fields to match your API):
-```
-curl -X POST http://localhost:3000/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"user@example.com","password":"password"}'
-```
-- API Docs: Swagger/OpenAPI available at /docs (add link if configured)
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
-## Project Structure
-```
-/src
-  /routes
-  /controllers
-  /services
-  /models
-  /middlewares
-  app.js | server.js
-/tests
-```
-Adjust to reflect the actual structure.
-
-## Testing
-```
-npm test
-```
-- Add unit/integration tests for routes, services, and models.
-- Optional: coverage via `npm run test:coverage`.
-
-## Linting & Formatting
-```
-npm run lint
-npm run format
-```
-- Configure ESLint and Prettier to enforce code style.
-
-## Docker (optional)
-Build and run:
-```
-docker build -t mainbackend .
-docker run -p 3000:3000 --env-file .env mainbackend
-```
-
-## Deployment
-- Provide steps for your target (e.g., Render, Railway, AWS, Heroku).
-- Set environment variables in the platform.
-- Run database migrations/seed (if applicable).
-
-## Contributing
-- Create a feature branch from main.
-- Follow conventional commits (optional).
-- Open a pull request with a clear description.
-
-## License
-MIT (or your chosen license). Add LICENSE file in the repository.
-
-## Maintainers
-- Your name/contact or team handle
-
-## Support
-- Create an issue: <your-issues-url>
-- Discussions/Q&A: <your-discussions-url>
