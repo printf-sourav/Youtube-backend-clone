@@ -1,0 +1,1009 @@
+{
+	"info": {
+		"_postman_id": "c0d49e1d-be42-47f2-9766-764e31959475",
+		"name": "youtube-backend-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49153401"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullname",
+									"value": "rohan sahu",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "sourav@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "121",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/home/sourav/Pictures/Screenshots/avatar.png"
+								},
+								{
+									"key": "username",
+									"value": "sourav",
+									"type": "text"
+								},
+								{
+									"key": "coverimage",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"sourav@gmail.com\",\n    \"username\": \"sourav\",\n    \"password\" : \"121\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/users/logout",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/users/refresh",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": \"@Rohan121\",\n  \"newPassword\": \"@Rohansahu121\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/change-password",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "current-user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "update-accoount",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"rohan\",\n    \"email\":\"s@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/update-account?fullName=rohan sahu uu&email=sourav@gmail.com",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"update-account"
+							],
+							"query": [
+								{
+									"key": "fullName",
+									"value": "rohan sahu uu"
+								},
+								{
+									"key": "email",
+									"value": "sourav@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userChannel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"sourav@gmail.com\",\n    \"username\": \"rohan\",\n    \"password\" : \"@Rohansahu121\"\n}"
+						},
+						"url": {
+							"raw": "{{server}}/users/?username=rohan",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "rohan"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "video",
+			"item": [
+				{
+					"name": "publish",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/home/sourav/Downloads/123/7565437-hd_1080_1920_25fps.mp4"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/home/sourav/Downloads/123/J38Yq85ZoyY-SD.jpg"
+								},
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "testtest",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000i/v1/video/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000i",
+							"path": [
+								"v1",
+								"video",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallvideo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/video/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"video",
+								""
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortType",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getvideoById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/video/68f28472d7a92e0517c71a6f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"video",
+								"68f28472d7a92e0517c71a6f"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortType",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateVideo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/home/sourav/Downloads/123/J38Yq85ZoyY-SD.jpg"
+								},
+								{
+									"key": "description",
+									"value": "hi new update",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "rohannnnn",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/video/68f28472d7a92e0517c71a6f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"video",
+								"68f28472d7a92e0517c71a6f"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortType",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVideo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/home/sourav/Downloads/123/J38Yq85ZoyY-SD.jpg"
+								},
+								{
+									"key": "description",
+									"value": "hi new update",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "rohannnnn",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/video/68f28423dd407be9d1cd32c0",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"video",
+								"68f28423dd407be9d1cd32c0"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortType",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "published",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "/home/sourav/Downloads/123/J38Yq85ZoyY-SD.jpg"
+								},
+								{
+									"key": "description",
+									"value": "hi new update",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "rohannnnn",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/video/toggle/publish/68f28472d7a92e0517c71a6f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"video",
+								"toggle",
+								"publish",
+								"68f28472d7a92e0517c71a6f"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortType",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tweets",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\" : \"this is my third tweett\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/tweet/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweet",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getalltweet",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "updatetweet",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newContent\": \"This is my first tweet v2\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/tweet/68f4fd4b4465d6a63b51d6eb",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweet",
+								"68f4fd4b4465d6a63b51d6eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTweet",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/tweet/68f3e7852af6fef2fc19727a",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweet",
+								"68f3e7852af6fef2fc19727a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "channel",
+			"item": [
+				{
+					"name": "channelCreate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"roger gaminf\",\n    \"description\": \"Channel Descriptiodsn\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/channel/create",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"channel",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/channel/delete/68f420fe1524f3bf9ab6b8bf",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"channel",
+								"delete",
+								"68f420fe1524f3bf9ab6b8bf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscription",
+			"item": [
+				{
+					"name": "subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscription/c/68f4197fdbe1642c9cc7a277",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscription",
+								"c",
+								"68f4197fdbe1642c9cc7a277"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getallsubscribers",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getallchannels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscription/u/68f4fc634465d6a63b51d6d3",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscription",
+								"u",
+								"68f4fc634465d6a63b51d6d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "addCOmment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"hi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comment/68f4fcf54465d6a63b51d6e2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comment",
+								"68f4fcf54465d6a63b51d6e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/comment/68f4fcf54465d6a63b51d6e2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comment",
+								"68f4fcf54465d6a63b51d6e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newContent\": \"hi i am rohan\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comment/c/68f5072e9b388cf66e4a95ef",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comment",
+								"c",
+								"68f5072e9b388cf66e4a95ef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCOmment",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "playlist",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Bollywood hits\",\n    \"description\": \"new songs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/playlist/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getuserPlaylist",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayLIstById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/68f4dc55531494bb40d04462",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"68f4dc55531494bb40d04462"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addVideoToPlaylist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/add/68f4fcf54465d6a63b51d6e2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"add",
+								"68f4fcf54465d6a63b51d6e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVideoFromPlaylist",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "deletePlaylist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlist/68f4dc898160f91306d642ab",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"68f4dc898160f91306d642ab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Bollywood hit new\",\n    \"description\":\"new description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/playlist/68f4ee2500ebf03cfb02ce4f",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlist",
+								"68f4ee2500ebf03cfb02ce4f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Likes",
+			"item": [
+				{
+					"name": "VideoLike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server}}/like/toggle/v/68f4fd2b4465d6a63b51d6e5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"like",
+								"toggle",
+								"v",
+								"68f4fd2b4465d6a63b51d6e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "commentLike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/like/toggle/c/68f5072e9b388cf66e4a95ef",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"like",
+								"toggle",
+								"c",
+								"68f5072e9b388cf66e4a95ef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tweetlike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/like/toggle/t/68f4fd4b4465d6a63b51d6eb",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"like",
+								"toggle",
+								"t",
+								"68f4fd4b4465d6a63b51d6eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getLikedVideos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/like/videos",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"like",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
