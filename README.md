@@ -151,14 +151,4 @@ Backend Developer | Node.js • Express • MongoDB • Cloud Integration
 📧 [lcs.souravkrsahu@gmail.com](mailto:lcs.souravkrsahu@gmail.com)  
 🌐 [LinkedIn](https://www.linkedin.com/in/sourav-kumar-sahu-ab7003209/)  
 
----
 
-## 🏆 Project Level Evaluation
-
-| Category | Rating | Notes |
-|-----------|--------|-------|
-| **Architecture** | ⭐⭐⭐⭐☆ | Proper MVC with middleware & utils |
-| **Features** | ⭐⭐⭐⭐☆ | JWT auth, Cloudinary, CRUD, Likes, Comments |
-| **Professionalism** | ⭐⭐⭐⭐⭐ | Excellent structure & .env management |
-| **Scalability** | ⭐⭐⭐⭐☆ | Modular and easily extensible |
-| **Overall Level** | **Intermediate → Advanced** | Perfect for portfolio & internship showcase |
