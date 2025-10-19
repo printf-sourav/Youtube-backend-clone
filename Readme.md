@@ -72,3 +72,82 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 
+👉 Example file provided: .env.example
+
+4️⃣ Run the Server
+
+npm run dev
+or
+node server.js
+
+Server runs on:
+http://localhost:5000
+
+📮 API Documentation (Postman)
+
+A complete Postman API collection is provided in the repository.
+You can import and test all endpoints, including authentication, videos, comments, and likes.
+
+File:
+Youtube-Backend.postman_collection.json
+
+📌 To Use:
+
+Open Postman → click Import.
+
+Select Youtube-Backend.postman_collection.json.
+
+Run any endpoint (register/login/upload video, etc.).
+
+View saved example responses for each API.
+
+🔗 Example API Endpoints
+
+| Method | Endpoint                     | Description                 |
+| ------ | ---------------------------- | --------------------------- |
+| POST   | `/api/v1/auth/register`      | Register new user           |
+| POST   | `/api/v1/auth/login`         | Login and receive JWT token |
+| GET    | `/api/v1/users/:id`          | Get user profile            |
+| PUT    | `/api/v1/users/:id`          | Update user profile         |
+| POST   | `/api/v1/videos/upload`      | Upload video to Cloudinary  |
+| GET    | `/api/v1/videos`             | Fetch all videos            |
+| POST   | `/api/v1/videos/:id/like`    | Like a video                |
+| POST   | `/api/v1/videos/:id/comment` | Add comment on video        |
+
+🧩 Cloudinary Integration
+
+Your app integrates with Cloudinary to handle video and thumbnail uploads.
+
+Configured via utils/cloudinary.js or similar helper file.
+
+Requires CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET in .env.
+
+Files are uploaded and stored securely with public URLs.
+
+const { uploader } = require("cloudinary").v2;
+
+const uploadVideo = async (filePath) => {
+  const result = await uploader.upload(filePath, {
+    resource_type: "video",
+    folder: "youtube-clone/videos",
+  });
+  return result.secure_url;
+};
+
+🧠 Future Enhancements
+
+🧪 Add Jest/Supertest for route testing
+
+📘 Integrate Swagger UI for live API documentation
+
+🧩 Add pagination and search features
+
+📦 Use Redis caching for trending videos
+
+🔔 Add real-time notifications (Socket.io)
+
+Sourav Kumar Sahu
+Backend Developer | Node.js • Express • MongoDB • Cloud Integration
+📧[lcs.souravkrsahu@gmail.com]
+🌐[linkedin](https://www.linkedin.com/in/sourav-kumar-sahu-ab7003209/)
+
